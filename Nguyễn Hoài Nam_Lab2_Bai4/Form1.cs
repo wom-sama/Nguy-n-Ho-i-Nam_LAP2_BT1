@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Nguyễn_Hoài_Nam_Lab2_Bai4
 {
@@ -17,26 +18,7 @@ namespace Nguyễn_Hoài_Nam_Lab2_Bai4
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LVTaiKhoan_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-        
+      
         private void TinhTongTien()
         {
             long tong = 0;
@@ -134,6 +116,20 @@ namespace Nguyễn_Hoài_Nam_Lab2_Bai4
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
+            }
+        }
+
+        private void lvTaiKhoan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lvTaiKhoan.SelectedItems.Count > 0)
+            {
+                ListViewItem item = lvTaiKhoan.SelectedItems[0]; // lấy dòng được chọn
+
+                // Đưa dữ liệu ngược vào các TextBox
+                txtSTK.Text = item.SubItems[1].Text;   // cột Mã Tài Khoản
+                txtTKH.Text = item.SubItems[2].Text;        // cột Tên Khách Hàng
+                txtDC.Text = item.SubItems[3].Text;       // cột Địa Chỉ
+                txtST.Text = item.SubItems[4].Text;       // cột Số Tiền
             }
         }
     }
